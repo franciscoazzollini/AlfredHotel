@@ -25,17 +25,27 @@ loadEnvFile(path.join(rootDir, ".env"));
 loadEnvFile(path.join(rootDir, ".env.local"));
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
-const key =
+const secretKey =
   process.env.SUPABASE_SECRET_KEY?.trim() ??
   process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
+const publishableKey =
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY?.trim() ??
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
+
+async function probeTable(supabase, table) {
+  const { count, error } = await supabase.from(table).select("*", { count: "exact", head: true });
+  return { table, count: count ?? 0, error: error?.message ?? null };
+}
 
 async function main() {
   if (!url) {
-    console.error("Falta NEXT_PUBLIC_SUPABASE_URL (Dashboard > Connect > Project URL)");
+    console.error("Falta NEXT_PUBLIC_SUPABASE_URL");
     process.exit(1);
   }
+
+  const key = secretKey ?? publishableKey;
   if (!key) {
-    console.error("Falta SUPABASE_SECRET_KEY");
+    console.error("Falta SUPABASE_SECRET_KEY o NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY");
     process.exit(1);
   }
 
@@ -43,16 +53,26 @@ async function main() {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 
-  const { count, error } = await supabase
-    .from("restaurants")
-    .select("*", { count: "exact", head: true });
-
-  if (error) {
-    console.error("Conexión falló:", error.message);
-    process.exit(1);
+  const { data: health, error: healthError } = await supabase.auth.getSession();
+  if (healthError && !secretKey) {
+    console.error("Auth probe failed:", healthError.message);
   }
 
-  console.log("Supabase OK — tabla restaurants:", count ?? 0, "filas");
+  console.log("URL:", url);
+  console.log("Key:", secretKey ? "secret (admin)" : "publishable (public)");
+  console.log("Session probe:", health?.session ? "active" : "none");
+
+  for (const table of ["restaurants", "todos", "guest_requests"]) {
+    const result = await probeTable(supabase, table);
+    if (result.error) {
+      console.log(`- ${result.table}: ${result.error}`);
+    } else {
+      console.log(`- ${result.table}: ${result.count} filas`);
+    }
+  }
 }
 
-main();
+main().catch((error) => {
+  console.error(error instanceof Error ? error.message : error);
+  process.exit(1);
+});
