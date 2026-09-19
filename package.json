@@ -8,10 +8,13 @@
     "start": "next start -p 43123",
     "lint": "eslint",
     "telegram:setup": "node scripts/telegram-setup.mjs",
-    "telegram:notify": "node scripts/notify-telegram.mjs"
+    "telegram:notify": "node scripts/notify-telegram.mjs",
+    "db:verify": "node scripts/verify-supabase.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.116.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cn": "^0.3.0",
