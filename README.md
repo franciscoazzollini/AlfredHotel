@@ -46,7 +46,8 @@ npm run db:verify
 
 1. Importar repo `AlfredHotel` desde GitHub
 2. Build: `npm run build` (ya en `netlify.toml`)
-3. Variables de entorno:
+3. **Quitar el badge “Powered by Netlify”** (recomendado para producción): en el dashboard, ir a **Project configuration → General → Powered by Netlify badge** y desactivarlo. El repo también incluye un guard que lo oculta en el navegador, pero la opción del dashboard lo elimina para todos los visitantes.
+4. Variables de entorno:
 
 | Variable | Descripción |
 | --- | --- |
