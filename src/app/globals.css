@@ -85,6 +85,7 @@
   --brand-muted: oklch(0.52 0.12 175 / 8%);
   --brand-border: oklch(0.52 0.12 175 / 18%);
   --brand-foreground: oklch(0.42 0.1 175);
+  --brand-accent: oklch(0.52 0.12 175);
   --surface-elevated: oklch(0.985 0 0);
 }
 
@@ -101,8 +102,8 @@
   --secondary-foreground: oklch(0.90 0.008 250);
   --muted: oklch(0.24 0.016 250);
   --muted-foreground: oklch(0.68 0.018 250);
-  --accent: oklch(0.28 0.028 175);
-  --accent-foreground: oklch(0.90 0.04 175);
+  --accent: oklch(0.26 0.014 250);
+  --accent-foreground: oklch(0.92 0.008 250);
   --destructive: oklch(0.65 0.18 25);
   --border: oklch(0.38 0.02 250 / 45%);
   --input: oklch(0.28 0.018 250);
@@ -120,10 +121,11 @@
   --sidebar-accent-foreground: oklch(0.90 0.008 250);
   --sidebar-border: oklch(0.38 0.02 250 / 45%);
   --sidebar-ring: oklch(0.62 0.1 175);
-  --brand: oklch(0.74 0.11 175);
-  --brand-muted: oklch(0.74 0.11 175 / 12%);
-  --brand-border: oklch(0.74 0.11 175 / 24%);
-  --brand-foreground: oklch(0.82 0.08 175);
+  --brand: oklch(0.78 0.1 175);
+  --brand-muted: oklch(0.24 0.012 250);
+  --brand-border: oklch(0.38 0.02 250 / 45%);
+  --brand-foreground: oklch(0.93 0.008 250);
+  --brand-accent: oklch(0.78 0.1 175);
   --surface-elevated: oklch(0.23 0.016 250);
 }
 
@@ -141,7 +143,13 @@
 
 @layer utilities {
   .surface-brand {
-    @apply border-[color:var(--brand-border)] bg-[color:var(--brand-muted)];
+    @apply border-teal-200/70 bg-teal-50/60;
+  }
+
+  .dark .surface-brand {
+    border-color: var(--brand-border);
+    background: var(--brand-muted);
+    box-shadow: inset 3px 0 0 color-mix(in oklch, var(--brand-accent) 55%, transparent);
   }
 
   .text-brand {
@@ -149,7 +157,7 @@
   }
 
   .icon-brand {
-    color: var(--brand);
+    color: var(--brand-accent);
   }
 
   .nav-active {
@@ -157,7 +165,12 @@
   }
 
   .dark .nav-active {
-    background: var(--brand-muted);
-    color: var(--brand-foreground);
+    background: var(--muted);
+    color: var(--foreground);
+    box-shadow: inset 0 -2px 0 var(--brand-accent);
+  }
+
+  .dark [data-slot="card"] {
+    --tw-ring-color: color-mix(in oklch, var(--border) 70%, transparent);
   }
 }

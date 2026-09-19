@@ -97,7 +97,7 @@ export function GuestHub({ hotel, room }: GuestHubProps) {
 
   return (
     <div className="space-y-5">
-      <section className="rounded-2xl border border-border/70 bg-card p-5 shadow-sm">
+      <section className="rounded-2xl border border-border/70 bg-card p-5 shadow-sm dark:shadow-none">
         <div className="flex items-start gap-4">
           <div className="flex size-14 items-center justify-center rounded-2xl bg-teal-600 text-2xl text-white dark:bg-teal-500">
             {hotel.logoEmoji}
@@ -127,7 +127,7 @@ export function GuestHub({ hotel, room }: GuestHubProps) {
       <section className="grid gap-3 sm:grid-cols-2">
         {hubLinks.map((link) => (
           <Link key={link.href} href={`${base}/${link.href}`}>
-            <Card className="h-full border-border/70 transition-all hover:-translate-y-0.5 hover:shadow-md">
+            <Card className="h-full border-border/70 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md dark:shadow-none dark:hover:bg-muted/40">
               <CardContent className="flex h-full gap-3 p-4">
                 <div
                   className={`flex size-11 shrink-0 items-center justify-center rounded-xl ${link.color}`}

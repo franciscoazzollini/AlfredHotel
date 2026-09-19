@@ -31,20 +31,20 @@ export function StayBanner({ stay, checkInTime, checkOutTime }: StayBannerProps)
   const nights = nightsBetween(stay.checkInDate, stay.checkOutDate);
 
   return (
-    <Card className="surface-brand border-teal-200/70 bg-teal-50/60">
+    <Card className="surface-brand">
       <CardContent className="space-y-3 p-4">
         <div className="flex items-center gap-2 font-medium">
-          <CalendarRange className="icon-brand size-4 text-teal-700" />
+          <CalendarRange className="icon-brand size-4" />
           {t.stay.title}
         </div>
         <p className="text-sm text-muted-foreground">{t.stay.subtitle}</p>
         <div className="grid grid-cols-2 gap-3 text-sm">
-          <div className="rounded-xl border border-border/60 bg-background/70 p-3">
+          <div className="rounded-xl border border-border/60 bg-muted/30 p-3 dark:bg-muted/50">
             <p className="text-xs text-muted-foreground">{t.stay.checkIn}</p>
             <p className="font-medium">{formatDate(stay.checkInDate, intlLocale)}</p>
             <p className="text-xs text-muted-foreground">{checkInTime}</p>
           </div>
-          <div className="rounded-xl border border-border/60 bg-background/70 p-3">
+          <div className="rounded-xl border border-border/60 bg-muted/30 p-3 dark:bg-muted/50">
             <p className="text-xs text-muted-foreground">{t.stay.checkOut}</p>
             <p className="font-medium">{formatDate(stay.checkOutDate, intlLocale)}</p>
             <p className="text-xs text-muted-foreground">{checkOutTime}</p>

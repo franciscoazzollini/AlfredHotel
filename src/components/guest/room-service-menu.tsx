@@ -137,7 +137,7 @@ export function RoomServiceMenu({ hotel, room }: RoomServiceMenuProps) {
         </section>
       ))}
 
-      <Card className="sticky bottom-24 border-teal-200/70 bg-background/95 backdrop-blur">
+      <Card className="sticky bottom-24 border-border/70 bg-background/95 backdrop-blur">
         <CardContent className="space-y-3 p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 font-medium">

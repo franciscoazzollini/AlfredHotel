@@ -25,10 +25,10 @@ export function WifiCard({ ssid, password }: WifiCardProps) {
   }
 
   return (
-    <Card className="surface-brand border-teal-200/60 bg-teal-50/50">
+    <Card className="surface-brand">
       <CardHeader className="pb-2">
         <CardTitle className="flex items-center gap-2 text-base">
-          <Wifi className="icon-brand size-4 text-teal-700" />
+          <Wifi className="icon-brand size-4" />
           {t.hub.wifiTitle}
         </CardTitle>
       </CardHeader>
