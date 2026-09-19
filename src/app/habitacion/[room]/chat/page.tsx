@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { GuestChatPanel } from "@/components/guest/guest-chat-panel";
-import { GuestShell } from "@/components/guest/guest-shell";
+import { GuestSubpageShell } from "@/components/guest/guest-subpage-shell";
 import { getHotelForRoom } from "@/lib/hotel/repository";
 
 type PageProps = {
@@ -17,12 +17,7 @@ export default async function RoomChatPage({ params }: PageProps) {
   }
 
   return (
-    <GuestShell
-      hotelName={hotel.name}
-      room={room}
-      title="Chat con recepción"
-      backHref={`/habitacion/${room}`}
-    >
+    <GuestSubpageShell hotelName={hotel.name} room={room} titleKey="chatTitle">
       <GuestChatPanel
         room={room}
         hotelId={hotel.id}
@@ -30,6 +25,6 @@ export default async function RoomChatPage({ params }: PageProps) {
         receptionPhone={hotel.receptionPhone}
         receptionWhatsApp={hotel.receptionWhatsApp}
       />
-    </GuestShell>
+    </GuestSubpageShell>
   );
 }

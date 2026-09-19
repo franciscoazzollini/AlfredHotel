@@ -1,9 +1,13 @@
+import { portalExtras } from "./portal-defaults";
 import type {
+  CleaningSchedule,
   Facility,
   GalleryPhoto,
+  GuestStay,
   Hotel,
   HotelEvent,
   MenuCategory,
+  RoomMap,
 } from "./types";
 
 export const DEFAULT_HOTEL_ID = "alfred-hotel";
@@ -17,6 +21,9 @@ type HotelPortalSettings = {
   facilities?: Facility[];
   events?: HotelEvent[];
   gallery?: GalleryPhoto[];
+  stay?: GuestStay;
+  cleaningSchedule?: CleaningSchedule;
+  roomMap?: RoomMap;
 };
 
 type BabSettingsRow = {
@@ -158,6 +165,9 @@ export const alfredHotelFallback: Hotel = {
       category: "Habitaciones",
     },
   ],
+  stay: portalExtras.stay,
+  cleaningSchedule: portalExtras.cleaningSchedule,
+  roomMap: portalExtras.roomMap,
 };
 
 function mapRowToHotel(row: RestaurantRow): Hotel {
@@ -181,6 +191,9 @@ function mapRowToHotel(row: RestaurantRow): Hotel {
     facilities: portal.facilities ?? alfredHotelFallback.facilities,
     events: portal.events ?? alfredHotelFallback.events,
     gallery: portal.gallery ?? alfredHotelFallback.gallery,
+    stay: portal.stay ?? alfredHotelFallback.stay,
+    cleaningSchedule: portal.cleaningSchedule ?? alfredHotelFallback.cleaningSchedule,
+    roomMap: portal.roomMap ?? alfredHotelFallback.roomMap,
   };
 }
 

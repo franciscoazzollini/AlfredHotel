@@ -333,7 +333,43 @@ insert into restaurants (
           "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
           "category": "Habitaciones"
         }
-      ]
+      ],
+      "stay": {
+        "checkInDate": "2026-09-19",
+        "checkOutDate": "2026-09-22",
+        "guestName": "Huésped demo"
+      },
+      "cleaningSchedule": {
+        "timezone": "America/Argentina/Buenos_Aires",
+        "weekly": {
+          "mon": { "enabled": true, "time": "10:00" },
+          "tue": { "enabled": true, "time": "10:00" },
+          "wed": { "enabled": true, "time": "10:00" },
+          "thu": { "enabled": true, "time": "10:00" },
+          "fri": { "enabled": true, "time": "10:00" },
+          "sat": { "enabled": false, "time": "11:00" },
+          "sun": { "enabled": false, "time": "11:00" }
+        },
+        "exceptions": [
+          {
+            "id": "2026-09-21-skip",
+            "date": "2026-09-21",
+            "type": "skip",
+            "note": "Do not disturb"
+          }
+        ]
+      },
+      "roomMap": {
+        "floor": "3",
+        "building": "Torre Alfred",
+        "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Av.+Corrientes+1234,+Buenos+Aires",
+        "mapImage": "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&q=80",
+        "steps": [
+          "Desde recepción, tomá el ascensor al 3er piso",
+          "Salí a la derecha y seguí el pasillo azul",
+          "La habitación está al final del pasillo, lado ventana"
+        ]
+      }
     }
   }'::jsonb,
   'alfred-demo-token-change-me',

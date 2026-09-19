@@ -5,21 +5,23 @@ import { usePathname } from "next/navigation";
 import { Home, MessageCircle, ConciergeBell, UtensilsCrossed } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/lib/i18n/context";
 
 type GuestNavProps = {
   room: string;
 };
 
-const navItems = [
-  { href: "", label: "Inicio", icon: Home },
-  { href: "/comida", label: "Comida", icon: UtensilsCrossed },
-  { href: "/servicios", label: "Servicios", icon: ConciergeBell },
-  { href: "/chat", label: "Chat", icon: MessageCircle },
-];
-
 export function GuestBottomNav({ room }: GuestNavProps) {
   const pathname = usePathname();
+  const { t } = useI18n();
   const base = `/habitacion/${room}`;
+
+  const navItems = [
+    { href: "", label: t.nav.home, icon: Home },
+    { href: "/comida", label: t.nav.food, icon: UtensilsCrossed },
+    { href: "/servicios", label: t.nav.services, icon: ConciergeBell },
+    { href: "/chat", label: t.nav.chat, icon: MessageCircle },
+  ];
 
   return (
     <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-border/70 bg-background/95 backdrop-blur-md">

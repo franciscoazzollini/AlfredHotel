@@ -1,14 +1,14 @@
 import { notFound } from "next/navigation";
 
 import { GuestSubpageShell } from "@/components/guest/guest-subpage-shell";
-import { PhotoGallery } from "@/components/guest/photo-gallery";
+import { RoomMapPanel } from "@/components/guest/room-map-panel";
 import { getHotelForRoom } from "@/lib/hotel/repository";
 
 type PageProps = {
   params: Promise<{ room: string }>;
 };
 
-export default async function RoomGalleryPage({ params }: PageProps) {
+export default async function RoomMapPage({ params }: PageProps) {
   const { room } = await params;
   const hotel = await getHotelForRoom(room);
 
@@ -17,8 +17,8 @@ export default async function RoomGalleryPage({ params }: PageProps) {
   }
 
   return (
-    <GuestSubpageShell hotelName={hotel.name} room={room} titleKey="galleryTitle">
-      <PhotoGallery photos={hotel.gallery} />
+    <GuestSubpageShell hotelName={hotel.name} room={room} titleKey="mapTitle">
+      <RoomMapPanel room={room} roomMap={hotel.roomMap} />
     </GuestSubpageShell>
   );
 }

@@ -2,17 +2,21 @@
 
 import Link from "next/link";
 import {
+  AlarmClock,
   CalendarDays,
   Images,
   MapPin,
+  MapPinned,
   Phone,
   Sparkles,
   UtensilsCrossed,
 } from "lucide-react";
 
+import { StayBanner } from "@/components/guest/stay-banner";
 import { WifiCard } from "@/components/guest/wifi-card";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { useI18n } from "@/lib/i18n/context";
 import type { Hotel } from "@/lib/hotel/types";
 
 type GuestHubProps = {
@@ -20,53 +24,68 @@ type GuestHubProps = {
   room: string;
 };
 
-const hubLinks = [
-  {
-    href: "comida",
-    label: "Comida a la habitación",
-    description: "Menú y pedidos sin llamar",
-    icon: UtensilsCrossed,
-    color: "bg-orange-100 text-orange-800 dark:bg-orange-950 dark:text-orange-100",
-  },
-  {
-    href: "servicios",
-    label: "Pedidos rápidos",
-    description: "Toallas, agua, limpieza y más",
-    icon: Sparkles,
-    color: "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-100",
-  },
-  {
-    href: "instalaciones",
-    label: "Instalaciones",
-    description: "Piscina, spa, gym y restaurante",
-    icon: MapPin,
-    color: "bg-violet-100 text-violet-800 dark:bg-violet-950 dark:text-violet-100",
-  },
-  {
-    href: "eventos",
-    label: "Eventos",
-    description: "Cronograma de actividades",
-    icon: CalendarDays,
-    color: "bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-100",
-  },
-  {
-    href: "galeria",
-    label: "Galería",
-    description: "Fotos del hotel y experiencias",
-    icon: Images,
-    color: "bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-100",
-  },
-  {
-    href: "chat",
-    label: "Chat con recepción",
-    description: "Consultas en tiempo real",
-    icon: Phone,
-    color: "bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-100",
-  },
-];
-
 export function GuestHub({ hotel, room }: GuestHubProps) {
+  const { t } = useI18n();
   const base = `/habitacion/${room}`;
+
+  const hubLinks = [
+    {
+      href: "comida",
+      label: t.hub.foodTitle,
+      description: t.hub.foodDesc,
+      icon: UtensilsCrossed,
+      color: "bg-orange-100 text-orange-800 dark:bg-orange-950 dark:text-orange-100",
+    },
+    {
+      href: "servicios",
+      label: t.hub.servicesTitle,
+      description: t.hub.servicesDesc,
+      icon: Sparkles,
+      color: "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-100",
+    },
+    {
+      href: "limpieza",
+      label: t.hub.cleaningTitle,
+      description: t.hub.cleaningDesc,
+      icon: AlarmClock,
+      color: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-100",
+    },
+    {
+      href: "mapa",
+      label: t.hub.mapTitle,
+      description: t.hub.mapDesc,
+      icon: MapPinned,
+      color: "bg-cyan-100 text-cyan-800 dark:bg-cyan-950 dark:text-cyan-100",
+    },
+    {
+      href: "instalaciones",
+      label: t.hub.facilitiesTitle,
+      description: t.hub.facilitiesDesc,
+      icon: MapPin,
+      color: "bg-violet-100 text-violet-800 dark:bg-violet-950 dark:text-violet-100",
+    },
+    {
+      href: "eventos",
+      label: t.hub.eventsTitle,
+      description: t.hub.eventsDesc,
+      icon: CalendarDays,
+      color: "bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-100",
+    },
+    {
+      href: "galeria",
+      label: t.hub.galleryTitle,
+      description: t.hub.galleryDesc,
+      icon: Images,
+      color: "bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-100",
+    },
+    {
+      href: "chat",
+      label: t.hub.chatTitle,
+      description: t.hub.chatDesc,
+      icon: Phone,
+      color: "bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-100",
+    },
+  ];
 
   return (
     <div className="space-y-5">
@@ -79,13 +98,21 @@ export function GuestHub({ hotel, room }: GuestHubProps) {
             <h2 className="text-xl font-semibold">{hotel.name}</h2>
             <p className="mt-1 text-sm text-muted-foreground">{hotel.tagline}</p>
             <div className="mt-3 flex flex-wrap gap-2">
-              <Badge>Hab. {room}</Badge>
-              <Badge variant="outline">Check-in {hotel.checkIn}</Badge>
-              <Badge variant="outline">Check-out {hotel.checkOut}</Badge>
+              <Badge>
+                {t.common.room} {room}
+              </Badge>
+              <Badge variant="outline">
+                {t.stay.checkIn} {hotel.checkIn}
+              </Badge>
+              <Badge variant="outline">
+                {t.stay.checkOut} {hotel.checkOut}
+              </Badge>
             </div>
           </div>
         </div>
       </section>
+
+      <StayBanner stay={hotel.stay} checkInTime={hotel.checkIn} checkOutTime={hotel.checkOut} />
 
       <WifiCard ssid={hotel.wifi.ssid} password={hotel.wifi.password} />
 

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { FacilitiesGrid } from "@/components/guest/facilities-grid";
-import { GuestShell } from "@/components/guest/guest-shell";
+import { GuestSubpageShell } from "@/components/guest/guest-subpage-shell";
 import { getHotelForRoom } from "@/lib/hotel/repository";
 
 type PageProps = {
@@ -17,13 +17,8 @@ export default async function RoomFacilitiesPage({ params }: PageProps) {
   }
 
   return (
-    <GuestShell
-      hotelName={hotel.name}
-      room={room}
-      title="Instalaciones"
-      backHref={`/habitacion/${room}`}
-    >
+    <GuestSubpageShell hotelName={hotel.name} room={room} titleKey="facilitiesTitle">
       <FacilitiesGrid facilities={hotel.facilities} />
-    </GuestShell>
+    </GuestSubpageShell>
   );
 }

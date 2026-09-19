@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import { GuestShell } from "@/components/guest/guest-shell";
+import { GuestSubpageShell } from "@/components/guest/guest-subpage-shell";
 import { RoomServiceMenu } from "@/components/guest/room-service-menu";
 import { getHotelForRoom } from "@/lib/hotel/repository";
 
@@ -17,13 +17,8 @@ export default async function RoomFoodPage({ params }: PageProps) {
   }
 
   return (
-    <GuestShell
-      hotelName={hotel.name}
-      room={room}
-      title="Comida a la habitación"
-      backHref={`/habitacion/${room}`}
-    >
+    <GuestSubpageShell hotelName={hotel.name} room={room} titleKey="foodTitle">
       <RoomServiceMenu hotel={hotel} room={room} />
-    </GuestShell>
+    </GuestSubpageShell>
   );
 }

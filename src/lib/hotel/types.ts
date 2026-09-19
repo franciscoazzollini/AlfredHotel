@@ -6,6 +6,41 @@ export type QuickServiceId =
   | "pillows"
   | "checkout";
 
+export type Weekday = "mon" | "tue" | "wed" | "thu" | "fri" | "sat" | "sun";
+
+export type CleaningDayRule = {
+  enabled: boolean;
+  time: string;
+};
+
+export type CleaningException = {
+  id: string;
+  date: string;
+  type: "skip" | "extra";
+  time?: string;
+  note?: string;
+};
+
+export type CleaningSchedule = {
+  timezone?: string;
+  weekly: Record<Weekday, CleaningDayRule>;
+  exceptions: CleaningException[];
+};
+
+export type GuestStay = {
+  checkInDate: string;
+  checkOutDate: string;
+  guestName?: string;
+};
+
+export type RoomMap = {
+  floor: string;
+  building: string;
+  directionsUrl: string;
+  mapImage?: string;
+  steps: string[];
+};
+
 export type MenuCategory = {
   id: string;
   name: string;
@@ -64,6 +99,9 @@ export type Hotel = {
   facilities: Facility[];
   events: HotelEvent[];
   gallery: GalleryPhoto[];
+  stay: GuestStay;
+  cleaningSchedule: CleaningSchedule;
+  roomMap: RoomMap;
 };
 
 export type GuestRequestPayload = {
