@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import { formatPrice } from "@/lib/hotel/demo-data";
+import { formatPrice } from "@/lib/hotel/repository";
 import type { Hotel, MenuItem } from "@/lib/hotel/types";
 
 type RoomServiceMenuProps = {

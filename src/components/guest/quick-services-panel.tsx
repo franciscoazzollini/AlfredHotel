@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import { quickServices } from "@/lib/hotel/demo-data";
+import { quickServices } from "@/lib/hotel/repository";
 import type { QuickServiceId } from "@/lib/hotel/types";
 
 type QuickServicesPanelProps = {

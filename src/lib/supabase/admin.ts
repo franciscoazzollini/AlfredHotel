@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 
 import { getSupabaseSecretKey, getSupabaseUrl, isSupabaseAdminConfigured } from "./env";
 
-export { isSupabaseAdminConfigured as isSupabaseConfigured };
+export { isSupabaseAdminConfigured, isSupabaseAdminConfigured as isSupabaseConfigured };
 
 export function getSupabaseAdmin() {
   const url = getSupabaseUrl();

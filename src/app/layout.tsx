@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Harbor Hotels | Portal QR para huéspedes",
+  title: "Alfred Hotel | Portal QR para huéspedes",
   description:
-    "Plataforma hotelera con QR en habitación: room service, recepción, instalaciones, eventos y pedidos rápidos.",
+    "Portal QR por habitación: room service, recepción, instalaciones, eventos y pedidos rápidos.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

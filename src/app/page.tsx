@@ -6,9 +6,8 @@ import { SiteHeader } from "@/components/site-header";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { DEMO_ROOM } from "@/lib/hotel/repository";
 import { cn } from "@/lib/utils";
-
-const demoRoom = "305";
 
 export default function Home() {
   return (
@@ -20,7 +19,7 @@ export default function Home() {
           <div className="mx-auto max-w-3xl text-center">
             <Badge className="mb-5 bg-teal-700 text-white hover:bg-teal-700">
               <Sparkles className="size-3.5" aria-hidden="true" />
-              Inspirado en tu proyecto QR-master
+              Alfred Hotel — portal QR
             </Badge>
             <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-6xl">
               Un QR en la habitación para que el huésped lo resuelva todo
@@ -31,20 +30,12 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
-                href={`/habitacion/${demoRoom}`}
+                href={`/habitacion/${DEMO_ROOM}`}
                 className={cn(buttonVariants({ size: "lg" }), "inline-flex")}
               >
                 <Smartphone className="size-4" />
-                Probar demo habitación {demoRoom}
+                Probar demo habitación {DEMO_ROOM}
               </Link>
-              <a
-                href="https://github.com/franciscoazzollini/qr-master"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(buttonVariants({ size: "lg", variant: "outline" }), "inline-flex")}
-              >
-                Ver QR-master en GitHub
-              </a>
             </div>
           </div>
 
@@ -82,9 +73,9 @@ export default function Home() {
 
       <footer className="border-t border-border/60 py-8">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 text-sm text-muted-foreground sm:flex-row sm:px-6">
-          <p>Harbor Hotels — portal QR para huéspedes</p>
-          <Link href={`/habitacion/${demoRoom}`} className="text-teal-700 hover:underline">
-            Demo: /habitacion/{demoRoom}
+          <p>Alfred Hotel — portal QR para huéspedes</p>
+          <Link href={`/habitacion/${DEMO_ROOM}`} className="text-teal-700 hover:underline">
+            Demo: /habitacion/{DEMO_ROOM}
           </Link>
         </div>
       </footer>

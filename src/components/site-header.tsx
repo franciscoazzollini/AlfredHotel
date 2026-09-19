@@ -3,6 +3,7 @@ import { Building2 } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { DEMO_ROOM } from "@/lib/hotel/repository";
 
 export function SiteHeader() {
   return (
@@ -12,20 +13,23 @@ export function SiteHeader() {
           <span className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <Building2 className="size-4" aria-hidden="true" />
           </span>
-          <span>Harbor Hotels</span>
+          <span>Alfred Hotel</span>
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <Link href="#features" className="transition-colors hover:text-foreground">
             Funciones
           </Link>
-          <Link href="/habitacion/305" className="transition-colors hover:text-foreground">
+          <Link href={`/habitacion/${DEMO_ROOM}`} className="transition-colors hover:text-foreground">
             Demo QR
           </Link>
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link href="/habitacion/305" className={cn(buttonVariants({ size: "sm" }))}>
+          <Link
+            href={`/habitacion/${DEMO_ROOM}`}
+            className={cn(buttonVariants({ size: "sm" }))}
+          >
             Probar demo
           </Link>
         </div>

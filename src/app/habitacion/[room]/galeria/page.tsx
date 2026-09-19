@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import { GuestShell } from "@/components/guest/guest-shell";
 import { PhotoGallery } from "@/components/guest/photo-gallery";
-import { DEMO_HOTEL_ID, getHotel } from "@/lib/hotel/demo-data";
+import { getHotelForRoom } from "@/lib/hotel/repository";
 
 type PageProps = {
   params: Promise<{ room: string }>;
@@ -10,8 +10,9 @@ type PageProps = {
 
 export default async function RoomGalleryPage({ params }: PageProps) {
   const { room } = await params;
-  const hotel = getHotel(DEMO_HOTEL_ID);
-  if (!hotel) {
+  const hotel = await getHotelForRoom(room);
+
+  if (!room.trim()) {
     notFound();
   }
 
