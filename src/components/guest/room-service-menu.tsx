@@ -96,7 +96,7 @@ export function RoomServiceMenu({ hotel, room }: RoomServiceMenuProps) {
                       <CardTitle className="text-base">{item.name}</CardTitle>
                       <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
                     </div>
-                    <p className="shrink-0 font-semibold text-teal-700 dark:text-teal-300">
+                    <p className="text-brand shrink-0 font-semibold">
                       {formatPrice(item.price)}
                     </p>
                   </div>

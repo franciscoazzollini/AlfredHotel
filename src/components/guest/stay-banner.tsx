@@ -31,10 +31,10 @@ export function StayBanner({ stay, checkInTime, checkOutTime }: StayBannerProps)
   const nights = nightsBetween(stay.checkInDate, stay.checkOutDate);
 
   return (
-    <Card className="border-teal-200/70 bg-teal-50/60 dark:border-teal-900 dark:bg-teal-950/40">
+    <Card className="surface-brand border-teal-200/70 bg-teal-50/60">
       <CardContent className="space-y-3 p-4">
         <div className="flex items-center gap-2 font-medium">
-          <CalendarRange className="size-4 text-teal-700 dark:text-teal-300" />
+          <CalendarRange className="icon-brand size-4 text-teal-700" />
           {t.stay.title}
         </div>
         <p className="text-sm text-muted-foreground">{t.stay.subtitle}</p>
@@ -50,7 +50,7 @@ export function StayBanner({ stay, checkInTime, checkOutTime }: StayBannerProps)
             <p className="text-xs text-muted-foreground">{checkOutTime}</p>
           </div>
         </div>
-        <p className="text-sm font-medium text-teal-800 dark:text-teal-200">
+        <p className="text-brand text-sm font-medium">
           {nights} {t.stay.nights}
           {stay.guestName ? ` · ${stay.guestName}` : ""}
         </p>

@@ -76,7 +76,7 @@ export function RoomMapPanel({ room, roomMap }: RoomMapPanelProps) {
           <ol className="space-y-3 text-sm">
             {roomMap.steps.map((step, index) => (
               <li key={step} className="flex gap-3">
-                <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-teal-100 text-xs font-semibold text-teal-800 dark:bg-teal-950 dark:text-teal-100">
+                <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-teal-100 text-xs font-semibold text-teal-800 dark:bg-teal-400/15 dark:text-teal-300">
                   {index + 1}
                 </span>
                 <span>{step}</span>

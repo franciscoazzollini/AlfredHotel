@@ -18,7 +18,7 @@ export function EventsList({ events }: EventsListProps) {
           </CardHeader>
           <CardContent className="space-y-2 text-sm">
             <p className="flex items-center gap-2">
-              <CalendarDays className="size-4 text-teal-700" />
+              <CalendarDays className="icon-brand size-4" />
               {event.date} · {event.time}
             </p>
             <p className="flex items-center gap-2 text-muted-foreground">

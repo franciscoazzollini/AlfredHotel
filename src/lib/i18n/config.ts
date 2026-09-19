@@ -1,6 +1,6 @@
 export const locales = [
-  { code: "es", label: "Español", flag: "🇪🇸" },
   { code: "en", label: "English", flag: "🇬🇧" },
+  { code: "es", label: "Español", flag: "🇪🇸" },
   { code: "de", label: "Deutsch", flag: "🇩🇪" },
   { code: "fr", label: "Français", flag: "🇫🇷" },
   { code: "ja", label: "日本語", flag: "🇯🇵" },
@@ -11,7 +11,7 @@ export const locales = [
 
 export type Locale = (typeof locales)[number]["code"];
 
-export const defaultLocale: Locale = "es";
+export const defaultLocale: Locale = "en";
 export const LOCALE_COOKIE = "alfred-locale";
 
 export function isLocale(value: string): value is Locale {

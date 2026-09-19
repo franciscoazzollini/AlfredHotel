@@ -21,7 +21,7 @@ export function GuestShell({
   children,
 }: GuestShellProps) {
   return (
-    <div className="min-h-dvh bg-[radial-gradient(circle_at_top,_rgba(15,118,110,0.08),_transparent_45%)]">
+    <div className="min-h-dvh bg-[radial-gradient(circle_at_top,_rgba(15,118,110,0.08),_transparent_45%)] dark:bg-[radial-gradient(circle_at_top,_rgba(45,212,191,0.08),_transparent_55%)]">
       <GuestHeader hotelName={hotelName} room={room} title={title} backHref={backHref} />
       <main className={showNav ? "mx-auto max-w-lg px-4 pb-28 pt-4" : "mx-auto max-w-lg px-4 py-4"}>
         {children}

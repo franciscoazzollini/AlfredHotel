@@ -122,7 +122,7 @@ export function CleaningSchedulePanel({ room, schedule }: CleaningSchedulePanelP
                 {item.type === "skip" ? (
                   <Ban className="mt-0.5 size-4 text-destructive" />
                 ) : (
-                  <Plus className="mt-0.5 size-4 text-teal-700" />
+                  <Plus className="icon-brand mt-0.5 size-4" />
                 )}
                 <div>
                   <p className="font-medium">

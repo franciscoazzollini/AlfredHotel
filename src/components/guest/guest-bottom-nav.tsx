@@ -39,9 +39,7 @@ export function GuestBottomNav({ room }: GuestNavProps) {
               href={href}
               className={cn(
                 "flex flex-col items-center gap-1 rounded-xl px-2 py-2 text-xs transition-colors",
-                active
-                  ? "bg-teal-50 text-teal-800 dark:bg-teal-950 dark:text-teal-100"
-                  : "text-muted-foreground hover:text-foreground",
+                active ? "nav-active" : "text-muted-foreground hover:text-foreground",
               )}
             >
               <item.icon className="size-5" aria-hidden="true" />

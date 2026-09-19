@@ -34,56 +34,64 @@ export function GuestHub({ hotel, room }: GuestHubProps) {
       label: t.hub.foodTitle,
       description: t.hub.foodDesc,
       icon: UtensilsCrossed,
-      color: "bg-orange-100 text-orange-800 dark:bg-orange-950 dark:text-orange-100",
+      color:
+        "bg-orange-100 text-orange-800 dark:bg-orange-400/10 dark:text-orange-300 dark:ring-1 dark:ring-orange-400/15",
     },
     {
       href: "servicios",
       label: t.hub.servicesTitle,
       description: t.hub.servicesDesc,
       icon: Sparkles,
-      color: "bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-100",
+      color:
+        "bg-blue-100 text-blue-800 dark:bg-sky-400/10 dark:text-sky-300 dark:ring-1 dark:ring-sky-400/15",
     },
     {
       href: "limpieza",
       label: t.hub.cleaningTitle,
       description: t.hub.cleaningDesc,
       icon: AlarmClock,
-      color: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-100",
+      color:
+        "bg-emerald-100 text-emerald-800 dark:bg-emerald-400/10 dark:text-emerald-300 dark:ring-1 dark:ring-emerald-400/15",
     },
     {
       href: "mapa",
       label: t.hub.mapTitle,
       description: t.hub.mapDesc,
       icon: MapPinned,
-      color: "bg-cyan-100 text-cyan-800 dark:bg-cyan-950 dark:text-cyan-100",
+      color:
+        "bg-cyan-100 text-cyan-800 dark:bg-cyan-400/10 dark:text-cyan-300 dark:ring-1 dark:ring-cyan-400/15",
     },
     {
       href: "instalaciones",
       label: t.hub.facilitiesTitle,
       description: t.hub.facilitiesDesc,
       icon: MapPin,
-      color: "bg-violet-100 text-violet-800 dark:bg-violet-950 dark:text-violet-100",
+      color:
+        "bg-violet-100 text-violet-800 dark:bg-violet-400/10 dark:text-violet-300 dark:ring-1 dark:ring-violet-400/15",
     },
     {
       href: "eventos",
       label: t.hub.eventsTitle,
       description: t.hub.eventsDesc,
       icon: CalendarDays,
-      color: "bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-100",
+      color:
+        "bg-amber-100 text-amber-900 dark:bg-amber-400/10 dark:text-amber-300 dark:ring-1 dark:ring-amber-400/15",
     },
     {
       href: "galeria",
       label: t.hub.galleryTitle,
       description: t.hub.galleryDesc,
       icon: Images,
-      color: "bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-100",
+      color:
+        "bg-rose-100 text-rose-800 dark:bg-rose-400/10 dark:text-rose-300 dark:ring-1 dark:ring-rose-400/15",
     },
     {
       href: "chat",
       label: t.hub.chatTitle,
       description: t.hub.chatDesc,
       icon: Phone,
-      color: "bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-100",
+      color:
+        "bg-teal-100 text-teal-800 dark:bg-teal-400/10 dark:text-teal-300 dark:ring-1 dark:ring-teal-400/15",
     },
   ];
 
@@ -91,7 +99,7 @@ export function GuestHub({ hotel, room }: GuestHubProps) {
     <div className="space-y-5">
       <section className="rounded-2xl border border-border/70 bg-card p-5 shadow-sm">
         <div className="flex items-start gap-4">
-          <div className="flex size-14 items-center justify-center rounded-2xl bg-teal-700 text-2xl text-white">
+          <div className="flex size-14 items-center justify-center rounded-2xl bg-teal-600 text-2xl text-white dark:bg-teal-500">
             {hotel.logoEmoji}
           </div>
           <div>

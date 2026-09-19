@@ -69,7 +69,7 @@ export function QuickServicesPanel({
             key={service.id}
             type="button"
             onClick={() => setSelected(service.id)}
-            className="rounded-2xl border border-border/70 bg-card p-4 text-left transition-colors hover:border-teal-300 hover:bg-teal-50/40 dark:hover:bg-teal-950/20"
+            className="rounded-2xl border border-border/70 bg-card p-4 text-left transition-colors hover:border-teal-300 hover:bg-teal-50/40 dark:hover:border-teal-400/30 dark:hover:bg-teal-400/10"
           >
             <div className="text-2xl">{service.emoji}</div>
             <p className="mt-2 font-medium">{service.label}</p>
