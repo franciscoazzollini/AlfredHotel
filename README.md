@@ -51,6 +51,22 @@ src/
 scripts/              # Telegram setup and notify CLI tools
 ```
 
+## Portal QR para huéspedes
+
+Inspirado en tu repo [qr-master](https://github.com/franciscoazzollini/qr-master), el portal permite que cada habitación tenga un QR con acceso a:
+
+| Función | Ruta demo |
+| --- | --- |
+| Hub principal | `/habitacion/305` |
+| Comida / room service | `/habitacion/305/comida` |
+| Pedidos rápidos (toallas, agua, etc.) | `/habitacion/305/servicios` |
+| Instalaciones con fotos | `/habitacion/305/instalaciones` |
+| Cronograma de eventos | `/habitacion/305/eventos` |
+| Galería del hotel | `/habitacion/305/galeria` |
+| Chat con recepción | `/habitacion/305/chat` |
+
+Los pedidos y mensajes se envían a recepción vía **Telegram** (si está configurado) y también ofrecen enlace a **WhatsApp**.
+
 ## Telegram bot (build notifications)
 
 The project includes a Telegram bot integration for status updates and future build artifacts (typically APK files).

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Building2 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   return (
@@ -16,18 +17,17 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <Link href="#features" className="transition-colors hover:text-foreground">
-            Features
+            Funciones
           </Link>
-          <Link href="#search" className="transition-colors hover:text-foreground">
-            Search
+          <Link href="/habitacion/305" className="transition-colors hover:text-foreground">
+            Demo QR
           </Link>
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
-            Sign in
-          </Button>
-          <Button size="sm">Get started</Button>
+          <Link href="/habitacion/305" className={cn(buttonVariants({ size: "sm" }))}>
+            Probar demo
+          </Link>
         </div>
       </div>
     </header>

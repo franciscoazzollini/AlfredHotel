@@ -1,26 +1,32 @@
-import { BadgeCheck, ConciergeBell, ShieldCheck } from "lucide-react";
+import { Building2, ConciergeBell, QrCode, ShieldCheck } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const features = [
   {
-    icon: ConciergeBell,
-    title: "Property management",
+    icon: QrCode,
+    title: "QR en cada habitación",
     description:
-      "Manage rooms, rates, and availability from one dashboard built for hotel teams.",
+      "El huésped escanea y accede al hub: WiFi, pedidos, chat y guía del hotel sin instalar nada.",
   },
   {
-    icon: BadgeCheck,
-    title: "Direct bookings",
+    icon: ConciergeBell,
+    title: "Room service y pedidos",
     description:
-      "Offer a branded booking experience that keeps guests on your site and reduces fees.",
+      "Comida a la habitación, toallas, agua, limpieza, mantenimiento y late checkout en segundos.",
+  },
+  {
+    icon: Building2,
+    title: "Instalaciones y eventos",
+    description:
+      "Mapa de facilities con fotos, horarios, galería del hotel y cronograma de actividades.",
   },
   {
     icon: ShieldCheck,
-    title: "Operations ready",
+    title: "Recepción en tiempo real",
     description:
-      "Start with a clean foundation for reservations, guest profiles, and reporting.",
+      "Cada pedido y mensaje llega a recepción por Telegram (y WhatsApp como respaldo).",
   },
 ];
 
@@ -29,18 +35,18 @@ export function FeatureGrid() {
     <section id="features" className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-2xl text-center">
         <Badge variant="secondary" className="mb-4">
-          Project starter
+          Funcionalidades
         </Badge>
         <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-          Built for modern hotel operations
+          Todo lo que pediste, en una sola experiencia
         </h2>
         <p className="mt-4 text-muted-foreground">
-          This repository is ready for your product direction. Share your requirements
-          and we will extend booking flows, admin tools, and integrations from here.
+          Basado en la vertical hotelera que ya tenías en QR-master, extendido para hoteles
+          completos con portal de huésped por habitación.
         </p>
       </div>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-3">
+      <div className="mt-12 grid gap-6 md:grid-cols-2">
         {features.map((feature) => (
           <Card key={feature.title} className="border-border/70 bg-card/80">
             <CardHeader>
